@@ -35,7 +35,7 @@ class productController extends Controller
         $products = array();
 
         foreach($data as $key => $val){
-            $products[] = $val->name;
+            $products[] = preg_replace('/[^\p{L}\p{N}\s]/u', '', $val->name);
         }
 
         $output = array();
