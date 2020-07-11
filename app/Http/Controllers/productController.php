@@ -27,7 +27,7 @@ class productController extends Controller
     }
     public function show($id){
         $data = Product::where('id',$id)->get();
-        
+
         return response()->json([
             'products' => $data,
         ], 200);
@@ -35,7 +35,6 @@ class productController extends Controller
     public function store (Request $request){
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'description' => 'required',
         ]);
 
         if ($validator->fails()) {
